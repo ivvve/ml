@@ -2,9 +2,6 @@
 import torch
 from torch import nn
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print("Current device:", device)
-
 
 # LocalResponseNorm hyperparameters (section 3.3)
 LRN_k = 2
