@@ -51,12 +51,12 @@ class AlexNet(nn.Module):
         # https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf
         self.classifier = nn.Sequential(
             # 1st layer
-            nn.Dropout(p=DROPOUT_p, inplace=True),
+            nn.Dropout(p=DROPOUT_p),
             nn.Linear(in_features=256*6*6, out_features=4096),
             nn.ReLU(),
 
             # 2nd layer
-            nn.Dropout(p=DROPOUT_p, inplace=True),
+            nn.Dropout(p=DROPOUT_p),
             nn.Linear(in_features=4096, out_features=4096),
             nn.ReLU(),
 

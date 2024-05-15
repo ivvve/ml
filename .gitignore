@@ -1,4 +1,5 @@
 .idea
 kaggle/*/data
 dacon/*/data
+paper/*/data
 __pycache__

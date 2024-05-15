@@ -1,0 +1,8 @@
+- model.py
+  - AlexNet pytorch 구현
+- data.py
+  - 훈련용 DataLoader
+- setup_data.py
+  - Tiny ImageNet dataset 세팅 스크립트
+- train.py
+  - 모델 훈련
