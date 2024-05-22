@@ -1,7 +1,7 @@
 import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-# streamlit run chatbot.py 
+# streamlit run simple_chatbot.py 
 
 # GOOGLE_API_KEY
 import os
