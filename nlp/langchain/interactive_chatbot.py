@@ -28,9 +28,11 @@ if uploaded_file:
     chain = ConversationalRetrievalChain.from_llm(
         llm=ChatGoogleGenerativeAI(model="gemini-pro", temperature=0),
         retriever=vector_store.as_retriever(),
+        verbose=True,
     )
 
     def conversational_chat(query):
+        # https://python.langchain.com/v0.1/docs/use_cases/question_answering/chat_history/#chain-with-chat-history
         result = chain.invoke({
             "question": query,
             "chat_history": st.session_state["history"],
@@ -38,6 +40,10 @@ if uploaded_file:
         # 세션에 대화 내역 추가
         st.session_state["history"].append((query, result["answer"]))
         return result["answer"]
+
+    print("[session state]")
+    for key, val in st.session_state.items():
+        print(f"{key}: {val}")
 
     if "history" not in st.session_state:
         st.session_state["history"] = []
@@ -48,7 +54,7 @@ if uploaded_file:
     if "past" not in st.session_state:
         st.session_state["past"] = ["안녕하세요!"]
 
-    # 챗봇 대화 내역 컨테이너
+    # 챗봇 대화 내역 컨테이너 UI
     response_container = st.container()
     container = st.container()
     with container:
